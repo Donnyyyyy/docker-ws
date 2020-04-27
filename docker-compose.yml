@@ -1,4 +1,4 @@
-version: "3.5"
+version: "2"
 
 services:
   server:
@@ -12,8 +12,8 @@ services:
     restart: always
     command: "python server.py"
     
-  redis:
-    container_name: redis
+  service_redis:
+    image: redis
     expose:
       - 6379
     restart: always
@@ -23,4 +23,4 @@ services:
       context: ./
       dockerfile: Dockerfile
     restart: always
-    command: "rq worker"
+    command: "rq worker -u redis://service_redis:6379"

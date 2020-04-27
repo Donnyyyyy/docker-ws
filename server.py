@@ -6,7 +6,8 @@ from rq.exceptions import NoSuchJobError
 
 from task import process_user
 
-redis = Redis()
+
+redis = Redis.from_url('redis://service_redis:6379')
 q = Queue(connection=redis)
 app = Flask(__name__)
 
