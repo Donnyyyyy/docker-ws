@@ -1,1 +1,3 @@
 login.sh
+*.pyc
+*.rdb
