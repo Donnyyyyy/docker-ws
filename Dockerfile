@@ -1,5 +1,5 @@
-FROM alpine
+FROM python
 
 COPY . /app/
-
-RUN python server.py
+WORKDIR /app/
+RUN pip install -r requirements.txt
